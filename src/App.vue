@@ -1,23 +1,15 @@
 <template>
   <div id="app">
     <img src="./assets/logo.jpg" alt=logo Groupomania/>
-    <Accueil msg=""/>
-    <Redit msg=""/>
+    <div id="nav">
+      <router-link to="/">Accueil</router-link> |
+      <router-link to="/9GAG">9GAG</router-link> |
+      <router-link to="/Redit">Redit</router-link>
+    </div>
+    <router-view></router-view>
   </div>
 </template>
 
-<script>
-import Accueil from './components/Accueil.vue'
-import Redit from './components/Redit.vue'
-
-export default {
-  name: 'App',
-  components: {
-    Accueil,
-    Redit,
-  }
-}
-</script>
 
 <style lang="scss">
 #app {
@@ -26,6 +18,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
 }
 </style>
